@@ -1,7 +1,19 @@
 import './TeamCard.css'
 
+const LinkedInIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect width="24" height="24" rx="4" fill="#0A66C2" />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M7.5 6.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM6.25 10h2.5v8h-2.5v-8zm4.25 0H13v1.1c.42-.73 1.32-1.35 2.75-1.35 2.62 0 3.25 1.63 3.25 3.75V18H16.5v-4c0-1-.02-2.3-1.5-2.3s-1.75 1.16-1.75 2.22V18H10.5V10z"
+      fill="white"
+    />
+  </svg>
+)
+
 export default function TeamCard({ member }) {
-  const { name, role, description, skills = [], image, linkedin } = member
+  const { name, image, linkedin } = member
 
   return (
     <article className="team-card">
@@ -12,14 +24,7 @@ export default function TeamCard({ member }) {
         }
       </div>
       <div className="team-card__body">
-        <p className="team-card__role mono">{role}</p>
         <h3 className="team-card__name">{name}</h3>
-        <p className="team-card__desc">{description}</p>
-        {skills.length > 0 && (
-          <ul className="team-card__skills">
-            {skills.map(s => <li key={s} className="mono">{s}</li>)}
-          </ul>
-        )}
         {linkedin && (
           <a
             href={linkedin}
@@ -27,7 +32,8 @@ export default function TeamCard({ member }) {
             rel="noreferrer"
             className="team-card__linkedin"
           >
-            LinkedIn ↗
+            <LinkedInIcon />
+            LinkedIn
           </a>
         )}
       </div>
