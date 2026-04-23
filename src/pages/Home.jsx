@@ -33,14 +33,14 @@ export default function Home() {
     <>
       <section className="hero" ref={heroRef}>
         <div className="container hero__content">
-          <p className="hero__tag mono" ref={tagRef}>IS-302 — Praksisemnet 2026</p>
+          <p className="hero__tag mono" ref={tagRef}>IS-302 Praksisemnet 2026</p>
           <h1 className="hero__title" ref={titleRef}>
             Vi lærer ved<br />
             <span className="accent">å gjøre</span>
           </h1>
           <p className="hero__sub" ref={subRef}>
             En gruppe IT-studenter ved UiA som dokumenterer veien gjennom
-            praksisemnet — fra oppstart til refleksjon.
+            praksisemnet, fra oppstart til refleksjon.
           </p>
           <div className="hero__cta" ref={ctaRef}>
             <Link to="/om-oss" className="btn btn--primary">Les mer om oss</Link>

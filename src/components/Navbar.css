@@ -35,16 +35,19 @@
 }
 
 .navbar__logo-mark {
-  width: 28px;
-  height: 28px;
-  background: var(--accent);
-  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--accent);
+  border-radius: 3px;
+  transform: rotate(45deg);
   flex-shrink: 0;
-  transition: background 0.2s;
+  box-shadow: 0 0 10px rgba(232, 255, 71, 0.35);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .navbar__logo:hover .navbar__logo-mark {
-  background: var(--glow);
+  border-color: var(--glow);
+  box-shadow: 0 0 16px rgba(184, 255, 0, 0.5);
 }
 
 .navbar__logo-text {
