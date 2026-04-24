@@ -2,6 +2,11 @@ export const teamMembers = [
   {
     id: 1,
     name: 'Iver Kroken',
+    featured: true,
+    subtitle: 'IT og informasjonssystemer, UiA / 4. semester',
+    age: '23 år, fra Brumunddal.',
+    bio: 'Opptatt av hvordan teknologi påvirker mennesker og systemer i praksis. Jobber strukturert, trives godt i team og liker å forstå det jeg holder på med skikkelig. Særlig interessert i AI og medisinsk teknologi.',
+    hobbies: ['Matlaging', 'Frisbeegolf', 'Klatring'],
     image: '/images/iver-linkedin.jpg',
     linkedin: 'https://www.linkedin.com/in/iver-kroken/',
   },

@@ -12,9 +12,43 @@ const LinkedInIcon = () => (
   </svg>
 )
 
-export default function TeamCard({ member }) {
-  const { name, image, linkedin } = member
+function FeaturedCard({ member }) {
+  const { name, subtitle, age, bio, hobbies = [], image, linkedin } = member
+  return (
+    <article className="team-card team-card--featured">
+      <div className="team-card__img-wrap">
+        {image
+          ? <img src={image} alt={name} className="team-card__img" />
+          : <div className="team-card__img-placeholder" aria-hidden="true" />
+        }
+      </div>
+      <div className="team-card__body">
+        <div className="team-card__featured-content">
+          <h3 className="team-card__name">{name}</h3>
+          {subtitle && <p className="team-card__subtitle mono">{subtitle}</p>}
+          {age     && <p className="team-card__age">{age}</p>}
+          {bio     && <p className="team-card__bio">{bio}</p>}
+          {hobbies.length > 0 && (
+            <ul className="team-card__hobbies">
+              {hobbies.map(h => <li key={h}>{h}</li>)}
+            </ul>
+          )}
+        </div>
+        {linkedin && (
+          <a href={linkedin} target="_blank" rel="noreferrer" className="team-card__linkedin">
+            <LinkedInIcon />
+            LinkedIn
+          </a>
+        )}
+      </div>
+    </article>
+  )
+}
 
+export default function TeamCard({ member, featured }) {
+  if (featured) return <FeaturedCard member={member} />
+
+  const { name, image, linkedin } = member
   return (
     <article className="team-card">
       <div className="team-card__img-wrap">
@@ -26,12 +60,7 @@ export default function TeamCard({ member }) {
       <div className="team-card__body">
         <h3 className="team-card__name">{name}</h3>
         {linkedin && (
-          <a
-            href={linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="team-card__linkedin"
-          >
+          <a href={linkedin} target="_blank" rel="noreferrer" className="team-card__linkedin">
             <LinkedInIcon />
             LinkedIn
           </a>

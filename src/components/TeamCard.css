@@ -1,3 +1,4 @@
+/* ── Base card ───────────────────────────────────────────────────── */
 .team-card {
   background: var(--ash);
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -71,4 +72,93 @@
 .team-card__linkedin:hover {
   background: rgba(10, 102, 194, 0.28);
   border-color: rgba(10, 102, 194, 0.6);
+}
+
+/* ── Featured card ───────────────────────────────────────────────── */
+.team-card--featured {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  text-align: left;
+  border-radius: 20px;
+}
+
+.team-card--featured .team-card__img-wrap {
+  aspect-ratio: 3 / 4;
+  border-radius: 0;
+}
+
+.team-card--featured .team-card__body {
+  padding: 40px 48px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0;
+}
+
+.team-card__featured-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.team-card--featured .team-card__name {
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.team-card__subtitle {
+  font-size: 0.78rem;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.team-card__age {
+  font-size: 0.9rem;
+  color: var(--silver);
+  margin: 0;
+}
+
+.team-card__bio {
+  font-size: 0.95rem;
+  color: var(--silver);
+  line-height: 1.75;
+  margin: 0;
+  max-width: 540px;
+}
+
+.team-card__hobbies {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 0;
+  padding: 0;
+}
+
+.team-card__hobbies li {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--light);
+  background: var(--fog);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4px 12px;
+  border-radius: 100px;
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 768px) {
+  .team-card--featured {
+    grid-template-columns: 1fr;
+  }
+  .team-card--featured .team-card__img-wrap {
+    aspect-ratio: 4 / 3;
+  }
+  .team-card--featured .team-card__body {
+    padding: 28px 24px 32px;
+    text-align: center;
+    align-items: center;
+  }
+  .team-card__hobbies {
+    justify-content: center;
+  }
 }
