@@ -51,6 +51,7 @@
 }
 
 .team-card__content {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -62,12 +63,47 @@
   gap: 8px;
 }
 
+/* ── Text ────────────────────────────────────────────────────────── */
+.team-card__name {
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+  font-weight: 700;
+  color: var(--snow);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.team-card__subtitle.mono {
+  font-size: 0.7rem;
+  color: var(--accent);
+  letter-spacing: 0.03em;
+  margin: 0;
+  line-height: 1.6;
+  white-space: normal;
+
+  word-break: keep-all;
+}
+
+.team-card__age {
+  font-size: 0.82rem;
+  color: var(--silver);
+  margin: 0;
+}
+
+.team-card__bio {
+  font-size: 0.82rem;
+  color: var(--silver);
+  line-height: 1.7;
+  margin: 0;
+  margin-top: 4px;
+}
+
 /* ── Interests ───────────────────────────────────────────────────── */
 .interests-list {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 4px;
+  margin-top: auto;
 }
 
 .interests-list__label {

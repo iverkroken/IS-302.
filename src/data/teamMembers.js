@@ -13,8 +13,7 @@ export const teamMembers = [
   {
     id: 2,
     name: 'Tobias Olsen Nodland',
-    subtitle: 'Ingeniørforkurs, UiA\nMaster i økonomi og administrasjon, UiA / 1. år\nIT og informasjonssystemer, UiA / 4. semester',
-    age: '23 år, fra Tvedestrand',
+    subtitle: 'Ingeniørforkurs, UiA\nMaster i økonomi og adm., UiA / 1. år\nIT og informasjonssystemer, UiA / 4. semester',    age: '23 år, fra Tvedestrand',
     bio: 'Jeg er liker å lære og forstå hvordan ting fungerer fra grunnen, slik at problemer kan løses på en informert og effektiv måte. Jeg er spesielt interessert i å utvikle løsninger med god en brukeropplevelse både for brukere og medarbeidere. Veldig interessert i systemprogrammering',
     hobbies: ['Natur fotografi', 'Matlaging', 'Film'],
     image: '/images/tobias-linkedin.jpg',
