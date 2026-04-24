@@ -6,8 +6,10 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer__inner">
         <div className="footer__brand">
-          <span className="footer__logo-mark" aria-hidden="true" />
-          <span className="footer__logo-text">IS-302</span>
+          <div className="footer__identity">
+            <span className="footer__logo-mark" aria-hidden="true" />
+            <span className="footer__logo-text">IS-302</span>
+          </div>
           <p className="footer__sub">Praksisprosjekt ved Universitetet i Agder</p>
         </div>
 
