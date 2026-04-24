@@ -26,41 +26,9 @@ function InterestsList({ items }) {
   )
 }
 
-function FeaturedCard({ member }) {
+export default function TeamCard({ member }) {
   const { name, subtitle, age, bio, hobbies = [], image, linkedin } = member
-  return (
-    <article className="team-card team-card--featured">
-      <div className="team-card__img-wrap">
-        {image
-          ? <img src={image} alt={name} className="team-card__img" />
-          : <div className="team-card__img-placeholder" aria-hidden="true" />
-        }
-      </div>
-      <div className="team-card__body">
-        <div className="team-card__featured-left">
-          <h3 className="team-card__name">{name}</h3>
-          {subtitle && <p className="team-card__subtitle mono">{subtitle}</p>}
-          {age     && <p className="team-card__age">{age}</p>}
-          {bio     && <p className="team-card__bio">{bio}</p>}
-          {linkedin && (
-            <a href={linkedin} target="_blank" rel="noreferrer" className="team-card__linkedin">
-              <LinkedInIcon />
-              LinkedIn
-            </a>
-          )}
-        </div>
-        <div className="team-card__featured-right">
-          <InterestsList items={hobbies} />
-        </div>
-      </div>
-    </article>
-  )
-}
 
-export default function TeamCard({ member, featured }) {
-  if (featured) return <FeaturedCard member={member} />
-
-  const { name, image, linkedin } = member
   return (
     <article className="team-card">
       <div className="team-card__img-wrap">
@@ -69,8 +37,16 @@ export default function TeamCard({ member, featured }) {
           : <div className="team-card__img-placeholder" aria-hidden="true" />
         }
       </div>
+
       <div className="team-card__body">
-        <h3 className="team-card__name">{name}</h3>
+        <div className="team-card__content">
+          <h3 className="team-card__name">{name}</h3>
+          {subtitle && <p className="team-card__subtitle mono">{subtitle}</p>}
+          {age      && <p className="team-card__age">{age}</p>}
+          {bio      && <p className="team-card__bio">{bio}</p>}
+          <InterestsList items={hobbies} />
+        </div>
+
         {linkedin && (
           <a href={linkedin} target="_blank" rel="noreferrer" className="team-card__linkedin">
             <LinkedInIcon />
