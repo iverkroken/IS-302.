@@ -12,6 +12,20 @@ const LinkedInIcon = () => (
   </svg>
 )
 
+function InterestsList({ items }) {
+  if (!items || items.length === 0) return null
+  return (
+    <div className="interests-list">
+      <p className="interests-list__label mono">INTERESSER</p>
+      <ul className="interests-list__items">
+        {items.map(item => (
+          <li key={item} className="interests-list__item mono">{item}</li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
 function FeaturedCard({ member }) {
   const { name, subtitle, age, bio, hobbies = [], image, linkedin } = member
   return (
@@ -23,23 +37,21 @@ function FeaturedCard({ member }) {
         }
       </div>
       <div className="team-card__body">
-        <div className="team-card__featured-content">
+        <div className="team-card__featured-left">
           <h3 className="team-card__name">{name}</h3>
           {subtitle && <p className="team-card__subtitle mono">{subtitle}</p>}
           {age     && <p className="team-card__age">{age}</p>}
           {bio     && <p className="team-card__bio">{bio}</p>}
-          {hobbies.length > 0 && (
-            <ul className="team-card__hobbies">
-              {hobbies.map(h => <li key={h}>{h}</li>)}
-            </ul>
+          {linkedin && (
+            <a href={linkedin} target="_blank" rel="noreferrer" className="team-card__linkedin">
+              <LinkedInIcon />
+              LinkedIn
+            </a>
           )}
         </div>
-        {linkedin && (
-          <a href={linkedin} target="_blank" rel="noreferrer" className="team-card__linkedin">
-            <LinkedInIcon />
-            LinkedIn
-          </a>
-        )}
+        <div className="team-card__featured-right">
+          <InterestsList items={hobbies} />
+        </div>
       </div>
     </article>
   )

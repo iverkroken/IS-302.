@@ -6,6 +6,7 @@
   overflow: hidden;
   transition: transform 0.3s ease, border-color 0.3s ease;
   text-align: center;
+  min-width: 0;
 }
 
 .team-card:hover {
@@ -38,35 +39,36 @@
 }
 
 .team-card__body {
-  padding: 20px 16px 24px;
+  padding: 16px 14px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .team-card__name {
   font-family: var(--font-heading);
-  font-size: 1.05rem;
   font-weight: 700;
   color: var(--snow);
   margin: 0;
   line-height: 1.3;
+  font-size: clamp(0.85rem, 1.2vw, 1.05rem);
 }
 
 .team-card__linkedin {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 500;
   color: var(--light);
   background: rgba(10, 102, 194, 0.12);
   border: 1px solid rgba(10, 102, 194, 0.3);
-  padding: 7px 14px;
+  padding: 6px 12px;
   border-radius: 6px;
   text-decoration: none;
   transition: background 0.2s, border-color 0.2s;
+  white-space: nowrap;
 }
 
 .team-card__linkedin:hover {
@@ -74,10 +76,45 @@
   border-color: rgba(10, 102, 194, 0.6);
 }
 
+/* ── Interests list (reusable) ───────────────────────────────────── */
+.interests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.interests-list__label {
+  font-size: 0.67rem;
+  color: var(--accent);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.interests-list__items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.interests-list__item {
+  font-size: 0.75rem;
+  color: var(--light);
+  background: var(--fog);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 7px 14px;
+  border-radius: 7px;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
+
 /* ── Featured card ───────────────────────────────────────────────── */
 .team-card--featured {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 300px 1fr;
   text-align: left;
   border-radius: 20px;
 }
@@ -88,16 +125,22 @@
 }
 
 .team-card--featured .team-card__body {
-  padding: 40px 48px;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0;
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  align-items: start;
+  gap: 32px;
+  padding: 36px 40px;
+  text-align: left;
 }
 
-.team-card__featured-content {
+.team-card__featured-left {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
+}
+
+.team-card__featured-right {
+  padding-top: 4px;
 }
 
 .team-card--featured .team-card__name {
@@ -106,47 +149,30 @@
 }
 
 .team-card__subtitle {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: var(--accent);
   letter-spacing: 0.04em;
   margin: 0;
+  line-height: 1.5;
 }
 
 .team-card__age {
   font-size: 0.9rem;
   color: var(--silver);
   margin: 0;
+  line-height: 1.5;
 }
 
 .team-card__bio {
   font-size: 0.95rem;
   color: var(--silver);
-  line-height: 1.75;
+  line-height: 1.8;
   margin: 0;
-  max-width: 540px;
+  max-width: 500px;
 }
 
-.team-card__hobbies {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 4px 0 0;
-  padding: 0;
-}
-
-.team-card__hobbies li {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--light);
-  background: var(--fog);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 4px 12px;
-  border-radius: 100px;
-  letter-spacing: 0.03em;
-}
-
-@media (max-width: 768px) {
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 900px) {
   .team-card--featured {
     grid-template-columns: 1fr;
   }
@@ -154,11 +180,10 @@
     aspect-ratio: 4 / 3;
   }
   .team-card--featured .team-card__body {
-    padding: 28px 24px 32px;
-    text-align: center;
-    align-items: center;
+    grid-template-columns: 1fr;
+    padding: 24px 20px 28px;
   }
-  .team-card__hobbies {
-    justify-content: center;
+  .team-card--featured .team-card__name {
+    font-size: 1.6rem;
   }
 }
